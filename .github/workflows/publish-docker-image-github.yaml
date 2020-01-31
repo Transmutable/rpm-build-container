@@ -1,0 +1,24 @@
+name: Publish docker image on GitHub
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set ENVs
+        run: |
+          echo "##[set-env name=GIT_TAG;]$(echo $GITHUB_REF | cut -d'/' -f3)"
+        shell: bash
+      - name: Publish to registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: trevorfsmith/rpm-build-container/rpm-build-container
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          tags: "latest,${{ env.GIT_TAG }}"
