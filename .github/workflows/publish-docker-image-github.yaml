@@ -17,7 +17,7 @@ jobs:
       - name: Publish to registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: transmutable/rpm-build
+          name: transmutable/rpm-build-container/rpm-build-container
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
