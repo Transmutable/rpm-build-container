@@ -1,6 +1,6 @@
 # RPM build container
 
-This repo is used to create a Docker image that makes it pretty handy to build an RPM package via `rpm` or `yum` commands on RedHat/CentOS/Alpine/etc Linux distributions.
+This repo is used to create a Docker image that makes it pretty handy to build an RPM package for use with the `rpm` and `yum` commands on RedHat/CentOS/Alpine/etc Linux distributions.
 
 This works for simple rpm spec files but you may want to fork this repo and build your own Docker image with your build tools pre-installed or to use a different structure for the build directories.
 
